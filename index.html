@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I Love You, Mummy</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', 'Arial', sans-serif;
+      background-color: #ffe6e6;
+      overflow-x: hidden;
+      text-align: center;
+      position: relative;
+    }
+
+    .container {
+      padding: 50px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4d4d;
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: typewriter 3s steps(40) 1s 1 normal both;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid orange;
+    }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    p {
+      color: #333;
+      font-size: 1.5em;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+      margin-top: 40px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #ffcccc;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .heart, .flower {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: -20px;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    .heart {
+      background-color: pink;
+      animation: fall linear infinite;
+    }
+
+    .flower {
+      background-color: purple;
+      animation: flowerFall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes flowerFall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(120vh) rotate(180deg); }
+    }
+
+    .hug-button {
+      padding: 15px 30px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .hug-button:hover {
+      background-color: #ff1a1a;
+    }
+  </style>
+</head>
+
+<body onload="showPopup(); createHearts(); createFlowers();">
+
+  <!-- Background Song (Hidden Autoplay) -->
+  <div style="display:none;">
+    <iframe src="https://www.youtube.com/embed/rzwLMn2Gr8M?autoplay=1&loop=1&playlist=rzwLMn2Gr8M" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+  <!-- Popup -->
+  <script>
+    function showPopup() {
+      alert("Happy Mother's Day, Mummy! Love you!");
+    }
+
+    function createHearts() {
+      setInterval(function() {
+        var heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+        heart.style.backgroundColor = "hsl(" + Math.random() * 360 + ", 100%, 80%)";
+        document.body.appendChild(heart);
+        setTimeout(function() { heart.remove(); }, 5000);
+      }, 300);
+    }
+
+    function createFlowers() {
+      setInterval(function() {
+        var flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.animationDuration = (3 + Math.random() * 4) + "s";
+        document.body.appendChild(flower);
+        setTimeout(function() { flower.remove(); }, 5000);
+      }, 400);
+    }
+  </script>
+
+  <div class="container">
+    <h1>I Love You, Mummy!</h1>
+    <p>Aap meri duniya ka sabse pyaara hissa ho, maa.</p>
+    <p>Aapka ek haasna, meri poori duniya ko roshan kar deta hai.</p>
+    <p>Aapka pyaar meri har dua mein basa hai.</p>
+    <p>Jab tak aapka saath hai, sab kuch mumkin hai.</p>
+    <p>Love you forever, Mummy!</p>
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/rzwLMn2Gr8M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <button class="hug-button" onclick="alert('Sending a big hug to Mummy!')">Click to send a hug!</button>
+  </div>
+
+  <footer>
+    Tumhari muskaan meri taqat hai... Thank You Maa!
+  </footer>
+
+</body>
+</html>
